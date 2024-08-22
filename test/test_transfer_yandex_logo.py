@@ -1,13 +1,10 @@
 from pages.page_object_main import *
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import allure
 
 
 @allure.feature("Yandex logo")
 @allure.story("Transfer to dzen with yandex logo click")
-@allure.title("Test transfer to dzen using yandex logo click")
-class TestMainPage:
+class TestMainPageYandex:
     def test_check_transfer_from_yandex_logo(self, driver):
         main_page = MainPage(driver)
 

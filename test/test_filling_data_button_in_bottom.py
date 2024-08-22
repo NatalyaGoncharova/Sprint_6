@@ -6,8 +6,7 @@ from data import *
 
 @allure.feature("Order Flow")
 @allure.story("Order scooter from the bottom")
-@allure.title("Test order flow using the button in the bottom")
-class TestMainPage:
+class TestMainPageOrderBottom:
     def test_order_flow_button_in_bottom(self, driver):
         main_page = MainPage(driver)
         order_page = OrderPage(driver)

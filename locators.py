@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from data import *
 
 QUESTION = (By.CSS_SELECTOR, '.accordion__button')
 ANSWER = (By.CSS_SELECTOR, '.accordion__panel')

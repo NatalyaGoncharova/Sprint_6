@@ -1,11 +1,15 @@
 from selenium.common import NoSuchWindowException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from locators import *
 
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+
+    def confirm_cookie(self):
+        self.click(COOKIES)
 
     def click(self, locator):
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()
@@ -34,9 +38,14 @@ class BasePage:
         try:
             self.driver.switch_to.window(new_window)
         except NoSuchWindowException:
-            print("Failed to switch to the new window.")
-            WebDriverWait(self.driver, 5).until(lambda d: len(d.window_handles) > 1)
+            WebDriverWait(self.driver, 10).until(lambda d: len(d.window_handles) > 1)
             self.driver.switch_to.window(self.driver.window_handles[-1])
 
     def wait_for_url_to_contain(self, url_fragment):
         WebDriverWait(self.driver, 10).until(EC.url_contains(url_fragment))
+
+    def find_elements(self, by_locator):
+        return self.driver.find_elements(*by_locator)
+
+    def find_element(self, by_locator):
+        return self.driver.find_element(*by_locator)

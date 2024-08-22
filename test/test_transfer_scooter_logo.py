@@ -5,8 +5,7 @@ import allure
 
 @allure.feature("Scooter logo")
 @allure.story("Transfer to main page with scooter logo click")
-@allure.title("Test transfer to main page using scooter logo click")
-class TestMainPage:
+class TestMainPageScooter:
 
     def test_check_transfer_from_scooter_logo_click(self, driver):
         main_page = MainPage(driver)

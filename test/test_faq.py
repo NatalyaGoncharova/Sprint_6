@@ -5,7 +5,6 @@ import allure
 
 @allure.feature("FAQ Page")
 @allure.story("Verify FAQ questions and answers")
-@allure.title("Test question {question_index}: Verify answer")
 class TestFAQPage:
     @pytest.mark.parametrize("question_index, expected_answer",
                              [(0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."),
